@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SeekARide.Models;
 
 namespace SeekARide.DataAccess.Repository
 {
@@ -12,6 +13,9 @@ namespace SeekARide.DataAccess.Repository
         T GetById(object Id);
 
     }
+
+	public interface IUserRepository : IRepository<User> {
+	}
 
 
 }

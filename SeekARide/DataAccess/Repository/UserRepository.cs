@@ -17,5 +17,9 @@ namespace SeekARide.DataAccess.Repository {
 			Add(user);
 			Context.SaveChanges();
 		}
+
+		public User GetUserByEmail(string email) {
+			return Model.SingleOrDefault(x => x.Email == email);
+		}
 	}
 }
