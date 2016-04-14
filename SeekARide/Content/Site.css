@@ -24,6 +24,13 @@ textarea {
     max-width: 280px;
 }
 
+.main-img{
+width: 96%;
+height: auto;
+    background-color: none;
+    box-shadow: 4px 4px 2px #888888;
+}
+
 .enjoy p{
 text-align: center;
 color: #000;
