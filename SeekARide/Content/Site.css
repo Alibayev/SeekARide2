@@ -26,9 +26,22 @@ textarea {
 
 .enjoy p{
 text-align: center;
+color: #000;
+font-size: 26px;  
+font-family: 'Shift', sans-serif;
+font-weight: bold;
 }
 
 .jumbotron img{
-width: 95%;
+width: 100%;
 height: auto;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.row .col-md-4{
+text-align: justify;
+color: #000;
+font-size: 14px;  
+font-family: 'Shift', sans-serif;
 }

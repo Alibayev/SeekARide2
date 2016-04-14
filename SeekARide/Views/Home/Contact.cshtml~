@@ -5,10 +5,10 @@
 <h3>@ViewBag.Message</h3>
 
 <address>
-    800 Campbell Road<br />
-    Richardson, TX 78051<br />
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
-    469.123.4567
+    425.555.0100
 </address>
 
 <address>

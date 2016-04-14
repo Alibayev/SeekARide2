@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img src="../img/carpool2.jpg" alt="Carpool Image">
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            An idea of carpooling.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+		A web platform on which drivers can post their trip plan as a listing.
+	</p>
+    </div>
+    <div class="col-md-4">
+        <p>
+		Riders can view the plans and take a ride if there are drivers going to or passing by their origin and destination.
+	</p>
+    </div>
+</div>
