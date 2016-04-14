@@ -24,11 +24,11 @@ textarea {
     max-width: 280px;
 }
 
-.main-img{
+.main-img img{
 width: 96%;
 height: auto;
-    background-color: none;
-    box-shadow: 4px 4px 2px #888888;
+background-color: none;
+box-shadow: 4px 4px 2px #888888;
 }
 
 .enjoy p{
