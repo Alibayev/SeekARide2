@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #ced2d5;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,13 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.enjoy p{
+text-align: center;
+}
+
+.jumbotron img{
+width: 95%;
+height: auto;
 }
