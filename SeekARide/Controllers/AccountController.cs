@@ -33,7 +33,7 @@ namespace SeekARide.Controllers {
 			}
 
 			UserAccountsManager.Instance.Login(model.Email, model.Password);
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Index", "Main");
 		}
 
 		//

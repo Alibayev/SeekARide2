@@ -1,7 +1,4 @@
-﻿//$(function() {
-//	$("#logoff").click(function (e) {
-//		alert("sdsd");
-//		e.preventDefault();
-//		$.get("/Account/LogOff");
-//	});
-//});
+﻿$(function() {
+	$("#date").datepicker('setStartDate', new Date());
+	$("#time").datetimepicker();
+});

@@ -9,6 +9,7 @@ namespace SeekARide.Models {
 		public virtual Location From { get; set; }
 		public virtual Location To { get; set; }
 		public TripType Type { get; set; }
+		public virtual TripInformation TripInformation { get; set; }
 
 	}
 }

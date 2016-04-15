@@ -1,0 +1,112 @@
+﻿@using SeekARide.Models
+@model NewPostingViewModel
+
+@{
+  ViewBag.Title = "Add New Posting";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("AddNewPosting", "Main", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+@Html.AntiForgeryToken()
+<h4>Create a new posting.</h4>
+<hr />
+	@Html.ValidationSummary("", new { @class = "text-danger" })
+	<div class="form-group">
+		@Html.LabelFor(m => m.DateTime, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.DateTime, new { @class = "form-control", id = "date" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.Time, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.Time, new { @class = "form-control", id = "time" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.TripType, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			<p>@Html.RadioButtonFor(m => m.TripType, TripType.LookingForDriver) Looking for Driver</p>
+			<p>@Html.RadioButtonFor(m => m.TripType, TripType.LookingForPassengers) Looking for Passengers</p>
+		</div>
+	</div>
+	<hr />
+	<h4> Origin Information</h4>
+	<div class="form-group">
+		@Html.LabelFor(m => m.StreetAddressOrigin, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.StreetAddressOrigin, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.CityOrigin, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.CityOrigin, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.StateOrigin, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.StateOrigin, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.ZipOrigin, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.ZipOrigin, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.AddOriginToAddressBook, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.CheckBoxFor(m => m.AddOriginToAddressBook, new { @class = "addressbook" })
+		</div>
+	</div>
+	<hr />
+	<h4> Destination Information</h4>
+	<div class="form-group">
+		@Html.LabelFor(m => m.StreetAddressDestination, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.StreetAddressDestination, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.CityDestination, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.CityDestination, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.StateDestination, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.StateDestination, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.ZipDestination, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.ZipDestination, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.AddDestinationToAddressBook, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.CheckBoxFor(m => m.AddDestinationToAddressBook, new { @class = "addressbook" })
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" class="btn btn-default" value="Add New Posting" />
+		</div>
+	</div>
+}
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/Scripts/utils.js")
+	@Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+	@Scripts.Render("~/Scripts/jquery.datetimepicker.min.js")
+@Styles.Render("~/Content/jquery.datetimepicker.css")
+}
