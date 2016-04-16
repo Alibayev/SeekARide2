@@ -26,15 +26,16 @@ namespace SeekARide.Models
             LinkedList<Trip> list = new LinkedList<Trip>();
             CarpoolContext db = new CarpoolContext();
             var trips = from trip in db.Trips
-                        where trip.TravelDateTime.AddHours(1) > departureTime
-                        && departureTime > trip.TravelDateTime
-                        select trip;
+                        where trip.TravelDateTime.AddHours(1)> departureTime
+                        && departureTime > trip.TravelDateTime 
+                        && trip.TripInformation.Capacity<4
+                        select trip; 
             foreach (var a in trips)
             {
                 Location from = new Location(a.From.StreetAddress, a.From.City, a.From.State, a.From.ZipCode);
                 Location to = new Location(a.To.StreetAddress, a.To.City, a.To.State, a.To.ZipCode);
                 DateTime time = a.TravelDateTime;
-                Trip trip = new Trip(from, to, time, a.Type, a.TripInformation);
+                Trip trip = new Trip(from, to, time,a.Type,a.TripInformation);
                 list.AddFirst(trip);
 
             }

@@ -190,9 +190,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdapterProxy.cs" />
+    <Compile Include="Models\GoogleAdapter.cs" />
+    <Compile Include="Models\IAbstractFactory.cs" />
+    <Compile Include="Models\IMatchAdapter.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MapQuestAdapter.cs" />
     <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\MatchedTrip.cs" />
+    <Compile Include="Models\MatchFactory.cs" />
     <Compile Include="Models\NewPostingViewModel.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\TripInformation.cs" />

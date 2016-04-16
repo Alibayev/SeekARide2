@@ -5,7 +5,8 @@ using System.Web;
 
 namespace SeekARide.Models
 {
-    public class IMatchAdapter
+    public interface IMatchAdapter
     {
+        LinkedList<MatchedTrip> getMatchedTrips(Trip newTrip);
     }
 }
