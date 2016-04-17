@@ -8,5 +8,14 @@ namespace SeekARide.Models {
 		public string State { get; set; }
 		public string City { get; set; }
 		public string ZipCode { get; set; }
-	}
+
+
+        public Location(string address, string State, string City, string ZipCode)
+        {
+            this.StreetAddress = address;
+            this.State = State;
+            this.City = City;
+            this.ZipCode = ZipCode;
+        }
+    }
 }
