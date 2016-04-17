@@ -211,3 +211,5 @@ D:\SeekARide\SeekARide\obj\Debug\SeekARide.pdb
 D:\SeekARide\SeekARide\obj\Debug\SeekARide.Migrations.init.resources
 D:\SeekARide\SeekARide\obj\Debug\SeekARide.csproj.GenerateResource.Cache
 D:\SeekARide\SeekARide\obj\Debug\SeekARide.Migrations.ChangestoTrip.resources
+D:\SeekARide\SeekARide\obj\Debug\SeekARide.Migrations.AddedAddressBook.resources
+D:\SeekARide\SeekARide\obj\Debug\SeekARide.Migrations.FixedAddressBook.resources

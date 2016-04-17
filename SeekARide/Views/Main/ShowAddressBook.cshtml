@@ -1,0 +1,34 @@
+﻿@model System.Collections.Generic.ICollection<SeekARide.Models.Location>
+<table>
+	<thead>
+		<tr>
+			<th>Street Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model) {
+
+		<tr>
+			<td>
+				@Html.Encode(item.StreetAddress)
+			</td>
+			<td>
+				@Html.Encode(item.State)
+			</td>
+			<td>
+				@Html.Encode(item.City)
+			</td>
+			<td>
+				@Html.Encode(item.ZipCode)
+			</td>
+			<td>
+				<input type="button" onclick="populateData(@Html.Encode(item.StreetAddress), @Html.Encode(item.City), @Html.Encode(item.State), @Html.Encode(item.ZipCode)"/>
+			</td>
+		</tr>
+
+		}
+	</tbody>
+</table>

@@ -12,7 +12,7 @@ namespace SeekARide.DataAccess {
         {
 			Database.SetInitializer<CarpoolContext>(null);
 		}
-
+		public DbSet<AddressBook> AddressBooks { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<TripInformation> TripInformations { get; set; }
 		public DbSet<Trip> Trips { get; set; }

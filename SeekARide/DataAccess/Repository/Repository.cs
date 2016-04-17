@@ -8,8 +8,8 @@ namespace SeekARide.DataAccess.Repository {
 		public DbSet<T> Model => dbSet;
         public DbContext Context => context;
 
-		public Repository() {
-			this.context = new CarpoolContext();
+		public Repository(CarpoolContext contextIn = null) {
+			this.context = contextIn ?? new CarpoolContext();
 			this.dbSet = context.Set<T>();
 		}
 

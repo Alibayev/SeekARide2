@@ -8,9 +8,9 @@ namespace SeekARide.Models {
 	public class NewPostingViewModel {
 		[Required]
 		[Display(Name = "Date of Travel")]
-		public string DateTime { get; set; }
+		public DateTime DateTime { get; set; }
 		[Display(Name = "Time of Travel")]
-		public string Time { get; set; }
+		public DateTime Time { get; set; }
 
 		[Display(Name = "Type of the Trip")]
 		public TripType TripType { get; set; }
