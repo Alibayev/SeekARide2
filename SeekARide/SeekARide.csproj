@@ -200,14 +200,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\AddressBook.cs" />
-=======
     <Compile Include="Models\AdapterProxy.cs" />
     <Compile Include="Models\GoogleAdapter.cs" />
     <Compile Include="Models\IAbstractFactory.cs" />
     <Compile Include="Models\IMatchAdapter.cs" />
->>>>>>> origin/master
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MapQuestAdapter.cs" />
