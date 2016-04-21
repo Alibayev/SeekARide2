@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "check";
+}
+
+<h2>Your Matched Results</h2>
+<br />
+<b>From:</b> @{
+    @ViewBag.from
+}
+<br /><br />
+<b>To:</b>
+@{
+    @ViewBag.to
+}
+<br /><br />
+<b>Departure time:</b>@{
+    @ViewBag.time
+}
+<br /><br />
+<table>
+    <tr>
+        <th>From Address           </th>
+        <th>To Address</th>
+        <th>Distance (miles)</th>
+        <th>Departure Time</th>
+        <th>Availabe seats</th>
+
+    </tr>
+
+    @foreach (var matchedTrip in ViewBag.list)
+    {
+
+        <tr>
+            <td>@matchedTrip.fromAddress.StreetAddress</td>
+            <td>@matchedTrip.toAddress.StreetAddress</td>
+            <td>@matchedTrip.distanceToCreator</td>
+            <td>@matchedTrip.departureTime</td>
+            <td>@matchedTrip.TripInformation.Capacity</td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+

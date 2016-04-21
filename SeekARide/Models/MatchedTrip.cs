@@ -19,7 +19,7 @@ namespace SeekARide.Models
        // public int durationTime { get; set; }
        // public int trafficTime { get; set; }
         //public int timeDifference { get; set; }
-        public int distanceToCreator { get; set; }
+        public double distanceToCreator { get; set; }
         public MatchedTrip(Location fromAddress, Location toAddress, TripInformation tripInfo, DateTime departureTime)
         {
             this.fromAddress = fromAddress;

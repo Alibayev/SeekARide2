@@ -22,13 +22,14 @@ namespace SeekARide.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult check(string fromStreet, string fromCity, string fromState, string fromZip, string toStreet, string toCity, string toState, string toZip, string time)
+        public ActionResult check(string fromStreet, string fromCity, string fromState, string fromZip, string toStreet, string toCity, string toState, string toZip, string time, FormCollection fc)
         {
+            string typeText = fc["typeText"];
             string origin = fromStreet + ", " + fromCity + ", " + fromState + ", " + fromZip;
             string destination = toStreet + ", " + toCity + ", " + toState + ", " + toZip;
             //Console.WriteLine("origin: " + origin);
             //Console.WriteLine("destination: " + destination);
-
+            int type = Int32.Parse(typeText);
 
             ViewBag.from = origin;
             ViewBag.to = destination;
@@ -38,12 +39,12 @@ namespace SeekARide.Controllers
             Location from = new Location(fromStreet, fromCity, fromState, fromZip);
             Location to = new Location(toStreet, toCity, toState, toZip);
             DateTime myTime = DateTime.ParseExact(time, "yyyy-MM-dd HH:mm",
-            System.Globalization.CultureInfo.InvariantCulture).AddHours(6);
-
+            System.Globalization.CultureInfo.InvariantCulture);
+                //.AddHours(6)
 
             Trip newTrip = new Trip(from, to, myTime);
             IAbstractFactory factory = MatchFactory.getInstance();
-            IMatchAdapter adapter = factory.getMatchAdapter(myTime);
+            IMatchAdapter adapter = factory.getMatchAdapter(myTime,type);
             ViewBag.list = adapter.getMatchedTrips(newTrip);
 
 
