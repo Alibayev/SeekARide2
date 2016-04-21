@@ -4,7 +4,6 @@
 
 
 		$('#AddressBook').on('click', function () {
-			alert("DSSDS");
 			$("#AddUserForm").dialog({
 				autoOpen: true,
 				position: { my: "center", at: "top+350", of: window },

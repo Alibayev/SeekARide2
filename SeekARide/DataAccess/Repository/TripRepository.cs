@@ -21,11 +21,6 @@ namespace SeekARide.DataAccess.Repository {
 				from.State = viewModel.StateOrigin;
 				from.ZipCode = viewModel.ZipOrigin;
 
-				//LocationRepository locationRepository = new LocationRepository();
-
-				//locationRepository.AddLocation(to);
-				//locationRepository.AddLocation(from);
-
 				Trip trip = new Trip();
 				trip.To = to;
 				trip.From = from;
@@ -33,12 +28,8 @@ namespace SeekARide.DataAccess.Repository {
 				trip.Type = viewModel.TripType;
 
 				TripInformation tripInformation = new TripInformation();
-				//tripInformation.Owner = user;
 				tripInformation.Capacity = viewModel.TripType == TripType.LookingForPassengers ? 3 : 1;
-				//new TripInformationRepository().Add(tripInformation);
-				//Context.SaveChanges();
 				trip.TripInformation = tripInformation;
-				//Add(trip);
 				using (CarpoolContext context = new CarpoolContext()) {
 					user = context.Users.Single(x => x.UserId == user.UserId);
 					trip.TripInformation.Owner = user;
@@ -57,13 +48,14 @@ namespace SeekARide.DataAccess.Repository {
 						}
 						addressBook.Locations.Add(to);
 					}
-
-					if (isNewAddressBook) {
-						context.AddressBooks.Add(addressBook);
-					}
-					else {
-						context.Set<AddressBook>().Attach(addressBook);
-						context.Entry(addressBook).State = EntityState.Modified;
+					if (viewModel.AddOriginToAddressBook || viewModel.AddDestinationToAddressBook) {
+						if (isNewAddressBook) {
+							context.AddressBooks.Add(addressBook);
+						}
+						else {
+							context.Set<AddressBook>().Attach(addressBook);
+							context.Entry(addressBook).State = EntityState.Modified;
+						}
 					}
 					context.SaveChanges();
 				}
