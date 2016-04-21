@@ -453,10 +453,11 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Main\AddNewPosting.cshtml" />
     <Content Include="Views\Main\ShowAddressBook.cshtml" />
+    <Content Include="Views\Match\check.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
