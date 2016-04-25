@@ -25,6 +25,13 @@ namespace SeekARide.Models {
 			this.TravelDateTime = TravelTime;
 		}
 
+		public string GetTripType() {
+			if (Type == TripType.LookingForPassengers) {
+				return "Looking for Passengers";
+			}
+
+			return "Looking for Driver";
+		}
 		public Trip() {
 
 		}

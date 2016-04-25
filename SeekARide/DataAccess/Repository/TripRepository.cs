@@ -62,6 +62,10 @@ namespace SeekARide.DataAccess.Repository {
 			}
 
 		}
+
+		public IList<Trip> GetAllActiveTrips() {
+			return Model.Where(x => x.TravelDateTime > DateTime.Now).OrderByDescending(x=>x.TripId).ToList();
+		} 
 	}
 
 	public class TripInformationRepository : Repository<TripInformation> {

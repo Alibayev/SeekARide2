@@ -1,0 +1,15 @@
+﻿@model IList<SeekARide.Models.Trip>
+@foreach (var trip in Model) {
+	<div>
+		<p><b>User:</b> @trip.TripInformation.GetFullName()</p>
+		<p><b>Trip Type:</b> @trip.GetTripType()</p>
+		<p><b>Origin:</b> @trip.From.StreetAddress, @trip.From.City, @trip.From.State, @trip.From.ZipCode
+		</p>
+		<p><b>Destination:</b> @trip.To.StreetAddress, @trip.To.City, @trip.To.State, @trip.To.ZipCode
+		</p>
+		<p><b>Date and Time: </b>@trip.TravelDateTime</p>
+		<p><b>Empty seats:</b> @trip.TripInformation.GetNumofSeats()</p>
+		<hr />
+	</div>
+	
+}

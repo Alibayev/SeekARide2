@@ -8,5 +8,13 @@ namespace SeekARide.Models {
 		public virtual User Owner { get; set; }
 		public virtual ICollection<User> Users {get; set; }
 		public int Capacity { get; set; }
+
+		public string GetFullName() {
+			return Owner.FirstName + " " + Owner.LastName;
+		}
+
+		public int GetNumofSeats() {
+			return Capacity - Users.Count;
+		}
 	}
 }

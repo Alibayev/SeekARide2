@@ -453,6 +453,7 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Main\AddNewPosting.cshtml" />
     <Content Include="Views\Main\ShowAddressBook.cshtml" />
+    <Content Include="Views\Main\_GetAllActiveTripsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
