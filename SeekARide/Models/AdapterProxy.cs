@@ -8,11 +8,11 @@ namespace SeekARide.Models
 {
     public class AdapterProxy : IMatchAdapter
     {
-        LinkedList<Trip> driverTrips;
+        LinkedList<Trip> datbaseMatchedTrips;
 
-        public AdapterProxy(LinkedList<Trip> driverTrips)
+        public AdapterProxy(LinkedList<Trip> datbaseMatchedTrips)
         {
-            this.driverTrips = driverTrips;
+            this.datbaseMatchedTrips = datbaseMatchedTrips;
         }
 
         public LinkedList<MatchedTrip> getMatchedTrips(Trip newTrip)
@@ -23,10 +23,10 @@ namespace SeekARide.Models
             try
             {
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                adapter = new GoogleAdapter(driverTrips);
+                adapter = new GoogleAdapter(datbaseMatchedTrips);
             } catch (WebException e)
             {
-                adapter = new MapQuestAdapter(driverTrips);
+                adapter = new MapQuestAdapter(datbaseMatchedTrips);
             }
             return adapter.getMatchedTrips(newTrip);
         }

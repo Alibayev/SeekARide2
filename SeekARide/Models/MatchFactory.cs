@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SeekARide.DataAccess;
+using System.Data.Entity;
 namespace SeekARide.Models
 {
     public class MatchFactory : IAbstractFactory
@@ -13,22 +14,24 @@ namespace SeekARide.Models
 
         public static MatchFactory getInstance() { return factory; }
 
-        public IMatchAdapter getMatchAdapter(DateTime departureTime)
+        public IMatchAdapter getMatchAdapter(DateTime departureTime, int type)
         {
-            LinkedList<Trip> driverTrips = readDb(departureTime);
-            IMatchAdapter adapter = new AdapterProxy(driverTrips);
+            LinkedList<Trip> datbaseMatchedTrips = readDb(departureTime,type);
+            IMatchAdapter adapter = new AdapterProxy(datbaseMatchedTrips);
 
             return adapter;
         }
 
-        private static LinkedList<Trip> readDb(DateTime departureTime)
+        private static LinkedList<Trip> readDb(DateTime departureTime, int type)
         {
             LinkedList<Trip> list = new LinkedList<Trip>();
             CarpoolContext db = new CarpoolContext();
             var trips = from trip in db.Trips
-                        where trip.TravelDateTime.AddHours(1)> departureTime
-                        && departureTime > trip.TravelDateTime 
-                        && trip.TripInformation.Capacity<4
+                        where
+                        DbFunctions.DiffHours(trip.TravelDateTime, departureTime)<6 &&
+                        departureTime > trip.TravelDateTime
+                        && trip.TripInformation.Capacity >= 1
+                        && ((int)trip.Type == (type==0?1:0))
                         select trip; 
             foreach (var a in trips)
             {

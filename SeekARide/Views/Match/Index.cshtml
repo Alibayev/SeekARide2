@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Search a trip</h2>
+
+
+<form action="~/match/check" method="post">
+    <input type="radio" name="typeText" value="1" checked> Look for drivers<br>
+    <input type="radio" name="typeText" value="0"> Look for riders<br>
+
+  
+    Select Your DateTime<input type="datetime" name="time"/><br /><br />
+    Select Your fromStreet<input type="text" name="fromStreet" /><br />
+    Select Your fromCity<input type="text" name="fromCity" /><br />
+    Select Your fromState<input type="text" name="fromState" /><br />
+    Select Your fromZipcode<input type="text" name="fromZip" /><br /><br />
+    Select Your toStreet<input type="text" name="toStreet" /><br />
+    Select Your toCity<input type="text" name="toCity" /><br />
+    Select Your toState<input type="text" name="toState" /><br />
+    Select Your toZipcode<input type="text" name="toZip" /><br />
+    <input type="submit" value='Check Trip Info' />
+</form>

@@ -32,8 +32,9 @@ namespace SeekARide.Models
                 DateTime departime = trip.TravelDateTime;
                int timeSeconds=(int) (departime- new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc)).TotalSeconds;
                 MatchedTrip mapMatchedTrip = new MatchedTrip(trip.From, trip.To, trip.TripInformation, departime);
-                mapMatchedTrip.distanceToCreator = getTime(fromAddress, fromAddress2, timeSeconds);
-                if (mapMatchedTrip.distanceToCreator<5000)
+                mapMatchedTrip.distanceToCreator = Math.Round(getTime(fromAddress, fromAddress2, timeSeconds)/1610.0,2);
+                mapMatchedTrip.toAddress = trip.To;
+                if (mapMatchedTrip.distanceToCreator<500)
                     mapMatchedTrips.AddFirst(mapMatchedTrip);
 
             }
@@ -55,7 +56,9 @@ namespace SeekARide.Models
               "&destination=" + destination + "&departure_time=" + time + "&key=AIzaSyBO9khwJBKM4II1pxZT89ItprSLiYj9eho";
             var client = new WebClient();
             var result = client.DownloadData(url);
-
+            //Console.Write(result);
+            string result2 = System.Text.Encoding.UTF8.GetString(result);
+           // System.IO.File.WriteAllText(@"D:\path.txt", result2);
             var json = Encoding.UTF8.GetString(result);
             dynamic dynObj = JsonConvert.DeserializeObject(json);
             var res = dynObj.routes[0].legs[0];
@@ -63,6 +66,8 @@ namespace SeekARide.Models
            // int trafficTime = res.duration_in_traffic.value;
             //  int durationTime = res.duration.value;
             int distance = res.distance.value;
+            Console.WriteLine(distance);
+            System.IO.File.WriteAllText(@"D:\path.txt", distance+"");
             return distance;
         }
 

@@ -8,6 +8,6 @@ namespace SeekARide.Models
 {
     interface IAbstractFactory
     {
-        IMatchAdapter getMatchAdapter(DateTime departureTime);
+        IMatchAdapter getMatchAdapter(DateTime departureTime, int type);
     }
 }
