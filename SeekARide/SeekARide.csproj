@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201604162036384_Fixed AddressBook.Designer.cs">
       <DependentUpon>201604162036384_Fixed AddressBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604251929207_request.cs" />
+    <Compile Include="Migrations\201604251929207_request.Designer.cs">
+      <DependentUpon>201604251929207_request.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddressBook.cs" />
@@ -212,6 +216,7 @@
     <Compile Include="Models\MatchedTrip.cs" />
     <Compile Include="Models\MatchFactory.cs" />
     <Compile Include="Models\NewPostingViewModel.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\TripInformation.cs" />
     <Compile Include="Models\TripType.cs" />
@@ -459,7 +464,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -478,6 +482,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604162036384_Fixed AddressBook.resx">
       <DependentUpon>201604162036384_Fixed AddressBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604251929207_request.resx">
+      <DependentUpon>201604251929207_request.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

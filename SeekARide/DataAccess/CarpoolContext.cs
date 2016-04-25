@@ -17,6 +17,7 @@ namespace SeekARide.DataAccess {
 		public DbSet<TripInformation> TripInformations { get; set; }
 		public DbSet<Trip> Trips { get; set; }
 		public DbSet<Location> Locations { get; set; }
+		public DbSet<Request> Requests { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
