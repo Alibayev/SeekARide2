@@ -50,5 +50,10 @@ namespace SeekARide.Controllers
 
             return View();
         }
+
+        public ActionResult SendRequest(int id)
+        {
+            return View();
+        }
     }
 }

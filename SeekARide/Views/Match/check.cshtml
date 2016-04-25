@@ -18,28 +18,31 @@
     @ViewBag.time
 }
 <br /><br />
-<table>
-    <tr>
-        <th>From Address           </th>
-        <th>To Address</th>
-        <th>Distance (miles)</th>
-        <th>Departure Time</th>
-        <th>Availabe seats</th>
-
-    </tr>
-
-    @foreach (var matchedTrip in ViewBag.list)
-    {
-
+<table class="table table-hover">
+    <thread>
         <tr>
-            <td>@matchedTrip.fromAddress.StreetAddress</td>
-            <td>@matchedTrip.toAddress.StreetAddress</td>
-            <td>@matchedTrip.distanceToCreator</td>
-            <td>@matchedTrip.departureTime</td>
-            <td>@matchedTrip.TripInformation.Capacity</td>
+            <th>From Address           </th>
+            <th>To Address</th>
+            <th>Distance (miles)</th>
+            <th>Departure Time</th>
+            <th>Availabe seats</th>
+            <th></th>
         </tr>
-    }
+    </thread>
+    <tbody>
+        @foreach (var matchedTrip in ViewBag.list)
+        {
 
+            <tr>
+                <td>@matchedTrip.fromAddress.StreetAddress</td>
+                <td>@matchedTrip.toAddress.StreetAddress</td>
+                <td>@matchedTrip.distanceToCreator</td>
+                <td>@matchedTrip.departureTime</td>
+                <td>@matchedTrip.TripInformation.Capacity</td>
+                <td>@Html.ActionLink("Reserve", "SendRequest", "Match", new { id = @matchedTrip.TripInformation.TripInformationId }, new { @class = "btn btn-info" })</td>
+            </tr>
+        }
+        </tbody>
 </table>
 
 
