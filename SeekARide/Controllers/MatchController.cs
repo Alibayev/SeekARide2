@@ -46,7 +46,12 @@ namespace SeekARide.Controllers
             IAbstractFactory factory = MatchFactory.getInstance();
             IMatchAdapter adapter = factory.getMatchAdapter(myTime,type);
             ViewBag.list = adapter.getMatchedTrips(newTrip);
-
+            if (ViewBag.list.Count==0)
+            {
+                
+                    return View("emptyResult");
+                
+            }
 
             return View();
         }
