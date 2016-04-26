@@ -30,12 +30,12 @@ namespace SeekARide.Controllers
 	    public ActionResult ShowAddressBook() {
 		    User user = UserAccountsManager.Instance.CurrentUser;
 				AddressBook addressBook = new Repository<AddressBook>().GetById(user.UserId);
-		    return PartialView(addressBook.Locations);
+		    return PartialView(addressBook != null ? addressBook.Locations : new List<Location>());
 	    }
 		public ActionResult ShowAddressBook2() {
 			User user = UserAccountsManager.Instance.CurrentUser;
 			AddressBook addressBook = new Repository<AddressBook>().GetById(user.UserId);
-			return PartialView(addressBook.Locations);
+			return PartialView(addressBook != null ? addressBook.Locations : new List<Location>());
 		}
 
 		public ActionResult _GetAllActiveTripsPartial() {

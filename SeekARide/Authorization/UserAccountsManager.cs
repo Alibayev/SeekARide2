@@ -30,6 +30,9 @@ namespace SeekARide.Authorization {
 
 		public bool Login(string email, string pwd) {
 			User user = _repo.GetUserByEmail(email);
+			if (user == null) {
+				return false;
+			}
 			string decryptedPwd = Encryption.Decrypt(user.Password);
 
 			if (pwd == decryptedPwd) {
