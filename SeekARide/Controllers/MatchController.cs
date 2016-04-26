@@ -19,6 +19,7 @@ namespace SeekARide.Controllers
     public class MatchController : Controller
     {
         // GET: Default
+        CarpoolContext db = new CarpoolContext();
         public ActionResult Index()
         {
             return View();
@@ -79,12 +80,21 @@ namespace SeekARide.Controllers
             request.Response = 0;
             request.StartTime = Convert.ToDateTime(ViewBag.time);
             request.TripInformation = tripInfo;
-
-            
             request.Owner = tripInfo.Owner;
 
-            RequestRepository requestRepo = new RequestRepository();
-            requestRepo.CreateRequest(request);//Error when executing this line. Solved the StackOverflow exception
+            //RequestRepository requestRepo = new RequestRepository();
+ //           requestRepo.CreateRequest(request);//Error when executing this line. Solved the StackOverflow exception
+            string sql = "insert into Request ([To],[From],StartTime,Response,Owner_UserId,User_UserId,TripInformation_TripInformationId) values (@p0,@p1,@p2,@p3,@p4,@p5,@p6)";
+            List<object> parameterList1 = new List<object>();
+            parameterList1.Add(request.To);
+            parameterList1.Add(request.From);
+            parameterList1.Add(request.StartTime);
+            parameterList1.Add(request.Response);
+            parameterList1.Add(request.Owner.UserId);
+            parameterList1.Add(request.User.UserId);
+            parameterList1.Add(request.TripInformation.TripInformationId);
+            object[] parameters = parameterList1.ToArray();
+            int result = db.Database.ExecuteSqlCommand(sql, parameters);
 
 
             

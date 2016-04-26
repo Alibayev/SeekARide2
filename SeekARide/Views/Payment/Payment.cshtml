@@ -1,0 +1,66 @@
+﻿@model SeekARide.Models.PaymentViewModel
+
+@{
+    ViewBag.Title = "Welcome to Payment";
+}
+
+<h1 style="font-family: sans-serif; font-size:13px; font-weight: bold; color: #000;">@ViewBag.Title.</h1>
+<div style="color: #000;">
+    @using (Html.BeginForm("Payment", "Payment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Amount, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CardHolderName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.TextBoxFor(m => m.CardHolderName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CardType, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.TextBoxFor(m => m.CardType, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Month, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.TextBoxFor(m => m.Month, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CVV, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10" style="font-family: sans-serif; font-size:10px; padding:4px;">
+                @Html.PasswordFor(m => m.CVV, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Pay" />
+            </div>
+        </div>
+    }
+</div>
+@if (!String.IsNullOrEmpty(ViewBag.status))
+{
+    <div>
+        <h3 color="GREEN"> @ViewBag.status</h3>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+@using SeekARide.Authorization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -25,6 +27,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+@if (UserAccountsManager.Instance.CurrentUser != null)
+{
+    <li>@Html.ActionLink("My Requests", "Index", "Request")</li>
+}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

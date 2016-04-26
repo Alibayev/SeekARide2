@@ -45,8 +45,18 @@ namespace SeekARide.Controllers
             TripInformation tripInfo = tripInfoRepo.GetById(tripinfoid);
             tripInfo.Users.Add(request.User);
             tripInfo.Capacity--;
-            
-            tripInfoRepo.UpdateTripInformation(tripInfo);//Error when executing this line
+
+            //Added instead of update repo
+            string sql = "update TripInformation set Capacity=@P0 where TripInformationId=@P1";
+            List<object> parameterList1 = new List<object>();
+            //User user = (User)Session["__user"];
+            parameterList1.Add(tripInfo.Capacity);
+            parameterList1.Add(tripInfo.TripInformationId);
+            object[] parameters1 = parameterList1.ToArray();
+            int result = db.Database.ExecuteSqlCommand(sql, parameters1);
+
+
+            //tripInfoRepo.UpdateTripInformation(tripInfo);//Error when executing this line
             
             
 
