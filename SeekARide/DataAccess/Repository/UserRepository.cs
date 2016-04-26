@@ -19,7 +19,7 @@ namespace SeekARide.DataAccess.Repository {
 		}
 
 		public User GetUserByEmail(string email) {
-			return Model.SingleOrDefault(x => x.Email == email);
+			return Model.FirstOrDefault(x => x.Email == email);
 		}
 	}
 }

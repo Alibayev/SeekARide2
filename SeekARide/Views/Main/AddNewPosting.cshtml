@@ -20,12 +20,6 @@
 		</div>
 	</div>
 	<div class="form-group">
-		@Html.LabelFor(m => m.Time, new { @class = "col-md-2 control-label" })
-		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.Time, new { @class = "form-control", id = "time" })
-		</div>
-	</div>
-	<div class="form-group">
 		@Html.LabelFor(m => m.TripType, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
 			<p>@Html.RadioButtonFor(m => m.TripType, TripType.LookingForDriver) Looking for Driver</p>
@@ -34,30 +28,30 @@
 	</div>
 	<hr />
 	<h4> Origin Information</h4>
-	<input id="AddressBook" type="button" />
+	<input id="AddressBook" type="button" value="Get from Address Book"/>
 	<div id="AddUserForm"></div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.StreetAddressOrigin, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.StreetAddressOrigin, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.StreetAddressOrigin, new { @id="street",@class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.CityOrigin, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.CityOrigin, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.CityOrigin, new { @id = "city", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.StateOrigin, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.StateOrigin, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.StateOrigin, new { @id = "state", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.ZipOrigin, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.ZipOrigin, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.ZipOrigin, new { @id = "zip", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
@@ -68,28 +62,29 @@
 	</div>
 	<hr />
 	<h4> Destination Information</h4>
+	<input id="AddressBook2" type="button" value="Get from Address Book" />
 	<div class="form-group">
 		@Html.LabelFor(m => m.StreetAddressDestination, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.StreetAddressDestination, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.StreetAddressDestination, new { @id = "street2", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.CityDestination, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.CityDestination, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.CityDestination, new { @id = "city2", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.StateDestination, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.StateDestination, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.StateDestination, new { @id = "state2", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.ZipDestination, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.ZipDestination, new { @class = "form-control" })
+			@Html.TextBoxFor(m => m.ZipDestination, new { @id = "zip2", @class = "form-control" })
 		</div>
 	</div>
 	<div class="form-group">

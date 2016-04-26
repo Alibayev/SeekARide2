@@ -32,8 +32,14 @@ namespace SeekARide.Controllers {
 				return View(model);
 			}
 
-			UserAccountsManager.Instance.Login(model.Email, model.Password);
-			return RedirectToAction("Index", "Main");
+			bool valid = UserAccountsManager.Instance.Login(model.Email, model.Password);
+			if (valid) {
+				return RedirectToAction("Index", "Main");
+			}
+			else {
+				return View();
+			}
+
 		}
 
 		//

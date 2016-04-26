@@ -9,9 +9,6 @@ namespace SeekARide.Models {
 		[Required]
 		[Display(Name = "Date of Travel")]
 		public DateTime DateTime { get; set; }
-		[Display(Name = "Time of Travel")]
-		public DateTime Time { get; set; }
-
 		[Display(Name = "Type of the Trip")]
 		public TripType TripType { get; set; }
 

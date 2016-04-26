@@ -461,6 +461,7 @@
     <Content Include="Views\Main\_GetAllActiveTripsPartial.cshtml" />
     <Content Include="Views\Match\check.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Main\ShowAddressBook2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
