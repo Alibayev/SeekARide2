@@ -11,6 +11,8 @@ using System.Xml;
 using Newtonsoft.Json;
 using SeekARide.Models;
 using SeekARide.DataAccess;
+using SeekARide.Authorization;
+using SeekARide.DataAccess.Repository;
 
 namespace SeekARide.Controllers
 {
@@ -32,8 +34,11 @@ namespace SeekARide.Controllers
             int type = Int32.Parse(typeText);
 
             ViewBag.from = origin;
+            TempData["from"] = origin;
             ViewBag.to = destination;
+            TempData["to"] = destination;
             ViewBag.time = time;
+            TempData["time"] = time;
             // DriverTrip newTrip = new DriverTrip(from, to, time);
             // ViewBag.list = getResult(newTrip);
             Location from = new Location(fromStreet, fromCity, fromState, fromZip);
@@ -58,6 +63,31 @@ namespace SeekARide.Controllers
 
         public ActionResult SendRequest(int id)
         {
+            ViewBag.from = TempData["from"];
+            ViewBag.to = TempData["to"];
+            ViewBag.time = TempData["time"];
+            //Modify TripInfo database
+            
+            User user = UserAccountsManager.Instance.CurrentUser;
+
+            TripInformationRepository tripRepo = new TripInformationRepository();
+            TripInformation tripInfo = tripRepo.GetById(id);
+            Request request = new Request();
+            request.User = user;
+            request.From = ViewBag.from;
+            request.To = ViewBag.to;
+            request.Response = 0;
+            request.StartTime = Convert.ToDateTime(ViewBag.time);
+            request.TripInformation = tripInfo;
+
+            
+            request.Owner = tripInfo.Owner;
+
+            RequestRepository requestRepo = new RequestRepository();
+            requestRepo.CreateRequest(request);//Error when executing this line. Solved the StackOverflow exception
+
+
+            
             return View();
         }
     }

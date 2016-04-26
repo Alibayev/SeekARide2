@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "My Requests";
+}
+
+<h2>My Request List</h2>
+
+
+<table border="1">
+    <tr>
+        <th>From Address</th>
+        <th>To Address</th>
+        <th>Departure Time</th>
+        <th>Action/Info</th>
+    </tr>
+    @foreach (var matchedRequest in ViewBag.list)
+    {
+        if (@matchedRequest.Response == 0)
+        {
+            <tr>
+                <td>@matchedRequest.From</td>
+                <td>@matchedRequest.To</td>
+                <td>@matchedRequest.StartTime</td>
+                <td>
+
+                    @Html.ActionLink("Accept", "Accept", "Request", new { id = @matchedRequest.RequestId,tripinfoid = @matchedRequest.TripInformation.TripInformationId}, new { @class = "btn btn-info" })@Html.ActionLink("Deny", "Deny", "Request", new { id = @matchedRequest.RequestId,tripinfoid = @matchedRequest.TripInformation.TripInformationId }, new { @class = "btn btn-info" })
+
+
+                </td>
+            </tr>
+        }
+
+    }
+    @foreach (var matchedRequest in ViewBag.list1)
+    {
+
+        <tr>
+            <td>@matchedRequest.From</td>
+            <td>@matchedRequest.To</td>
+            <td>@matchedRequest.StartTime</td>
+            <td>
+                @if (@matchedRequest.Response == 1)
+                {
+                    <p><b>Accepted</b></p>
+                }
+                else if (@matchedRequest.Response == 2)
+                {
+                    <p><b>Denied</b></p>
+                }
+                else
+                {
+                    <p><b>User hasn't responded yet</b></p>
+                }
+
+            </td>
+        </tr>
+
+    }
+</table>

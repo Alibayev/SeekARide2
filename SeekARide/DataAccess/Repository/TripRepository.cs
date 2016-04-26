@@ -77,5 +77,10 @@ namespace SeekARide.DataAccess.Repository {
 			Add(trip);
 			Context.SaveChanges();
 		}
+        public void UpdateTripInformation(TripInformation tripInfo)
+        {
+            Update(tripInfo);
+            Context.SaveChanges();
+        }
 	}
 }

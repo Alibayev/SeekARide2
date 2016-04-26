@@ -14,5 +14,6 @@ namespace SeekARide.Models {
 		public string From { get; set; }
 		public DateTime StartTime { get; set; }
 		public int Response { get; set; }
+        public virtual TripInformation TripInformation { get; set; }
 	}
 }
